@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ALICE</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" type="text/css" href="css/animate.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="js/animation.js"></script>
+<script src="js/jquery.inview.min.js"></script>
+<script>
+	$(function() {
+	  $(window).scroll(function() {
+		$('.fadein').each(function() {
+		  var elemPos = $(this).offset().top;
+		  var scroll = $(window).scrollTop();
+		  var windowHeight = $(window).height();
+		  if (scroll > elemPos - windowHeight + 200) {
+			$(this).addClass('scrollin');
+		  }
+		});
+	  });
+	});
+
+	$(function() {
+	  setTimeout(function() {
+		$('#opening').fadeOut();
+	  }, 3500); //約4秒数後
+	});
+	
+	$(function(){
+	  var now = new Date().getTime();
+	  $('#opening img').attr('src','TOP.svg'+'?'+''+now);
+	});
+
+	$(function() {
+	  $("#contents").css({
+		opacity: '0'
+	  });
+	  setTimeout(function() {
+		$("#contents").css("display", "block");
+		$("#contents").stop().animate({
+		  opacity: '1'
+		}, 2500); //1秒かけてコンテンツを表示
+	  }, 3800); //約4秒後に
+	});
+	</script>
+</head>
+
+<body>
+  <div id="opening">
+    <img src="TOP.svg" width="400" height="200">
+    <p>Dogrun &amp; Salon</p>
+  </div>
+
+  <div id="contents">
+    <header class="site-header pc">
+      <nav class="gnav">
+        <ul class="gnav__menu">
+          <li class="gnav__menu__item logo"><a href=""><img src="image/logo.png" alt="アリス" width="130px"></a></li>
+          <li class="gnav__menu__item"><a href="#sec1_dogrun" class="anchor"><img class="menu_icon" src="image/icon.png" alt="" width="20px">ドッグラン</a></li>
+          <li class="gnav__menu__item"><a href="#sec2_hotel" class="anchor"><img class="menu_icon" src="image/icon.png" alt="" width="20px">ホテル</a></li>
+          <li class="gnav__menu__item"><a href="#sec3_trimming" class="anchor"><img class="menu_icon" src="image/icon.png" alt="" width="20px">トリミング&amp;シャンプー</a></li>
+          <li class="gnav__menu__item"><a href="#sec4_store" class="anchor"><img class="menu_icon" src="image/icon.png" alt="" width="20px">当店について</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <header class="site-header_sp sp">
+      <div id="nav-drawer">
+        <input id="nav-input" type="checkbox" class="nav-unshown">
+        <label id="nav-open" for="nav-input"><span></span></label>
+        <label class="nav-unshown" id="nav-close" for="nav-input"></label>
+        <div id="nav-content">
+          <ul class="">
+            <li class="gnav__menu__item_sp logo_sp"><a href=""><img src="image/logo.png" alt="アリス" width="130px"></a></li>
+            <li class="gnav__menu__item_sp menu_list"><a href="#sec1_dogrun" class="anchor"><img class="menu_icon" src="image/icon.png" alt="" width="20px">ドッグラン</a></li>
+            <li class="gnav__menu__item_sp menu_list"><a href="#sec2_hotel" class="anchor"><img class="menu_icon" src="image/icon.png" alt="" width="20px">ホテル</a></li>
+            <li class="gnav__menu__item_sp menu_list"><a href="#sec3_trimming" class="anchor"><img class="menu_icon" src="image/icon.png" alt="" width="20px">トリミング&amp;シャンプー</a></li>
+            <li class="gnav__menu__item_sp menu_list"><a href="#sec4_store" class="anchor"><img class="menu_icon" src="image/icon.png" alt="" width="20px">当店について</a></li>
+          </ul>
+        </div>
+      </div>
+    </header>
+
+
+    <div id="all">
+      <div class="mv">
+        <p><img class="mv_ttl" src="image/mv_ttl.png" alt=""></p>
+        <img class="mv_bird pc" src="image/mv_bird.png" alt="">
+        <p>ALICE（アリス）は、<span>神奈川県南足柄市</span>にある<br class="pc">
+          <span>一時預り・ホテル・トリミング・ドッグラン</span>のお店です。</p>
+        <p>こだわりの設備と、ワンちゃんにやさしいケアを行っております。<br class="pc"> 小田原・箱根からも近く、自然と澄んだ空気の中で
+          <br class="pc"> 四季折々の風景を感じながら、お過ごし頂けます。
+        </p>
+        <img class="mvimg pc" src="image/mv.png" alt="">
+        <img class="mvimg sp" src="image/mv_SP.png" alt="">
+      </div>
+
+      <div class="sec1 cf fadein" id="sec1_dogrun">
+        <p><img class="dogrun" src="image/dogrun.png" alt="ドッグラン"></p>
+        <img class="dogrunimg" src="image/dogrun_img.png" alt="ドッグラン">
+
+        <p><span>広い敷地に人工芝</span>で、ワンちゃんが快適に遊べるドッグランとなっています。
+          <br>ホテルでお預かりしているワンちゃんは、<span>朝晩ドッグランで自由に遊べます。</span></p>
+        <img class="table1" src="image/dogrun_tbl.png" alt="ドッグラン">
+        <ul class="list">
+          <li>ご利用には、狂犬病ワクチン接種日のわかる証明書と混合ワクチン（５種以上）接種日のわかる証明書をご持参下さい。</li>
+        </ul>
+
+      </div>
+
+      <div class="sec2 cf fadein " id="sec2_hotel">
+        <p><img class="hotel" src="image/hotel.png" alt="ホテル"></p>
+        <img class="hotelimg" src="image/hotel_img.png" alt="ホテル">
+
+        <p>広くて丈夫なケージで、<span>常に清潔感が保たれるよう</span>に心がけています。
+          <br><span>遊び道具や癒しグッズもたくさん</span>あり、ワンちゃんを飽きさせません。</p>
+        <img class="table1" src="image/hotel_tbl.png" alt="ホテル">
+        <ul class="list">
+          <li>環境やフードが変わると食事をしない場合がございますので、いつも召し上がっている物をお持ち下さい。</li>
+          <li>いつも使っているタオル・おもちゃなど匂いのついた物は、安心感を与えてくれますのでお持ちいただく事をおススメします。</li>
+          <li>散歩は、一日2回ドックランor外へお散歩に</li>
+          <li>ワクチン未接種・病気（皮膚病を含む）・狂犬病未予防・ノミ、ダニ等の寄生している場合・噛み癖のある場合・極度に神経質なワンちゃん・その他当店で無理と判断したワンちゃんはお断りする事がございます。</li>
+          <li>営業時間外の場合は、別途料金を頂戴致します。（但し、朝７：３０以前・夜８：００以降の場合は前・後一泊となります。）</li>
+        </ul>
+      </div>
+
+      <div class="sec3 cf fadein" id="sec3_trimming">
+        <p><img class="trimming" src="image/trimming.png" alt="トリミング＆シャンプー"></p>
+        <img class="trimmingimg" src="image/trimming_img.png" alt="トリミング＆シャンプー">
+
+        <p>トリミングでワンちゃんを飼い主様のイメージどおりに。
+          <br>シャンプーが苦手なワンちゃんも<span>極上バスタイムでリラックス。</span></p>
+        <div class="pc dog3">
+          <p class="dog1 pyon1"><img src="image/dog1.png" alt=""></p>
+          <p class="dog2 pyon2"><img src="image/dog2.png" alt=""></p>
+          <p class="dog3 pyon3"><img src="image/dog3.png" alt=""></p>
+        </div>
+
+        <div class="table2">
+          <img src="image/menu1.png"><br>
+          <div id="trigger01"></div>
+          <img src="image/menu2.png"><br>
+          <div id="trigger02"></div>
+          <img src="image/menu3.png"><br>
+          <div id="trigger03"></div>
+          <img src="image/menu4.png">
+        </div>
+
+        <ul class="list">
+          <li>シャンプーコースには、足裏バリカン、下腹部バリカン、肛門周りのバリカン、耳掃除、爪切り、シャンプー、リンス、肛門腺ケア、オゾンシャワー、足回りのカットが含まれます。</li>
+          <li>美容中にワンちゃんの体調が変化した場合や、極度の緊張状態になった場合、美容を中止させていただく場合がございます。</li>
+          <li>暴れる・咬むワンちゃんの場合、怪我の心配があるので、申し訳ありませんがお断りする場合がございます。</li>
+          <li>ご予約時間に遅れる場合、もしくはキャンセルの場合は必ず１時間前までに　ご連絡いただきますようお願い申し上げます。また15分以上遅れますとキャンセルとなる場合がございます。</li>
+        </ul>
+      </div>
+
+      <div class="sec4 cf fadein" id="sec4_store">
+        <p><img class="store" src="image/store.png" alt="当店について"></p>
+        <img class="storeimg" src="image/store_img.png" alt="当店について">
+        <p><img class="master pc" src="image/tencho.png" alt="ドッグラン"></p>
+        <p><img class="master sp" src="image/tencho_sp.png" alt="ドッグラン"></p>
+
+
+        <div class="floatbox pc">
+          <div class="le">
+            <p class="dog_icon"><img src="image/icon.png" alt="">住所</p>
+            <p>神奈川県南足柄市中沼448</p>
+            <p class="dog_icon"><img src="image/icon.png" alt="">電話番号</p>
+            <p><a href="tel:0465336622">0465-33-6622</a></p>
+            <p class="dog_icon"><img src="image/icon.png" alt="">営業時間</p>
+            <p>トリミング＆ホテル　　9:00～17:00<br>
+              ドックラン【4月～6月】9:00～17:30<br>
+              【7月～9月】9:00～18:00<br>
+              【10月～3月】9:00～16:30</p>
+            <p class="dog_icon"><img src="image/icon.png" alt="">定休日</p>
+            <p>水曜日・その他不定休</p>
+          </div>
+          <div class="ri">
+            <img src="image/comeon.png" alt="">
+          </div>
+        </div>
+
+        <div class="sp">
+          <div class="le">
+            <p class="dog_icon">
+              <img src="image/icon.png" alt="">住所</p>
+            <p>神奈川県南足柄市中沼448</p>
+            <p class="dog_icon"><img src="image/icon.png" alt="">電話番号</p>
+            <p><a href="tel:0465336622">0465-33-6622</a></p>
+            <p class="dog_icon"><img src="image/icon.png" alt="">営業時間</p>
+            <p>トリミング＆ホテル　　9:00～17:00<br>
+              ドックラン【4月～6月】9:00～17:30<br>
+              【7月～9月】9:00～18:00<br>
+              【10月～3月】9:00～16:30</p>
+            <p class="dog_icon"><img src="image/icon.png" alt="">定休日</p>
+            <p>水曜日・その他不定休</p>
+          </div>
+          <div class="ri">
+            <img src="image/comeon.png" alt="">
+          </div>
+        </div>
+
+        <div class="maps cf">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3255.684096014596!2d139.11020771524872!3d35.31383018028157!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6019a0d778df01cd%3A0x9bb16afcd6d69949!2z44CSMjUwLTAxMjMg56We5aWI5bed55yM5Y2X6Laz5p-E5biC5Lit5rK877yU77yU77yY!5e0!3m2!1sja!2sjp!4v1546845596102"
+            width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+        </div>
+      </div>
+
+      <div>
+        <p class="footer">Copyright 2016 Dogrun &amp; Salon ALICE（アリス）</p>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
