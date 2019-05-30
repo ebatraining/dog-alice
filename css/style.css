@@ -64,7 +64,9 @@ body {
 }
 
 .gnav {
-  margin: 0 auto;
+  display: flex;
+  margin: auto;
+
 }
 
 .gnav__menu {
@@ -78,18 +80,42 @@ body {
   list-style: none;
 }
 
-.logo {
-  margin: auto 30px;
+
+.logo a {
+  color: #725b59;
+  text-decoration: none;
 }
 
 .menu_icon {
-  margin-right: 7px;
+  margin-right: 6px;
 }
 
 .gnav__menu__item a {
   color: #725b59;
   text-decoration: none;
+  position: relative;
+  display: inline-block;
 }
+
+.gnav__menu__item a::after {
+  position: absolute;
+  bottom:-8px;
+  left: 0;
+  content: '';
+  width: 100%;
+  height: 5px;
+  background:  #d7e847;
+  opacity: 0;
+  visibility: hidden;
+  transition: .3s;
+}
+.gnav__menu__item a:hover::after {
+  bottom: -4px;
+  opacity: 1;
+  visibility: visible;
+}
+
+
 
 img {
   max-width: 100%;
@@ -114,22 +140,28 @@ img {
 }
 
 ul {
+  margin: 0;
+  padding: 0;
   display: inline-block;
   text-align: center;
 }
 
 li {
+  list-style-type : none;
   text-align: left;
 }
 
-span {
+.underLine {
   background: linear-gradient(transparent 40%, #d7e847 40%);
 }
+
 
 .sec1, .sec2, .sec3, .sec4 {
   padding-top: 180px;
 }
-
+a {
+  display: block;
+}
 a:link {
   color: #725b59;
 }
@@ -243,6 +275,7 @@ a:active {
   margin-top: 150px;
 }
 
+
 @media screen and (max-width: 768px) {
   #opening {
     text-align: center;
@@ -263,15 +296,21 @@ a:active {
     display: block;
     text-align: center;
   }
-  .logo_sp {
-    margin: 0;
+  li {
+    margin: 0 20px;
+    border-top:1px solid #d7e847;
   }
-  .gnav__menu__item_sp {
-    list-style: none;
-  }
-  .menu_list {
+  #nav-content ul a {
     padding: 20px;
+    text-decoration: none;
   }
+  #nav-content h1 {
+    margin-right: 90px;
+  }
+  .logo_sp {
+    margin: 20px 0 0 30px;
+  }
+
   .mv_bird {
     width: 90px;
     position: relative;
@@ -336,7 +375,7 @@ a:active {
   .site-header_sp {
     display: flex;
     position: fixed;
-    text-align: right;
+    text-align: left;
     top: 10px;
     right: 0;
     z-index: 999;
@@ -350,39 +389,62 @@ a:active {
   }
   /*アイコンのスペース*/
   #nav-open {
+    margin-right: 10px;
     display: inline-block;
     width: 50px;
     height: 42px;
     vertical-align: middle;
   }
   /*ハンバーガーアイコンをCSSだけで表現*/
-  #nav-open span, #nav-open span:before, #nav-open span:after {
+  #nav-open,
+  #nav-open span {
+    display: inline-block;
+    transition: all .4s;
+    box-sizing: border-box;
+  }
+  #nav-open {
+    position: relative;
+    z-index: 2;
+    width: 50px;
+    height: 44px;
+  }
+  #nav-open span {
     position: absolute;
-    height: 5px;
-    /*線の太さ*/
-    width: 40px;
-    /*長さ*/
-    border-radius: 3px;
-    background: #725b59;
-    ;
-    display: block;
-    content: '';
-    cursor: pointer;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: #725b59;
+    border-radius: 4px;
   }
-  #nav-open span:before {
-    bottom: -13px;
+  #nav-open span:nth-of-type(1) {
+    top: 0;
   }
-  #nav-open span:after {
-    bottom: -26px;
+  #nav-open span:nth-of-type(2) {
+    top: 20px;
   }
+  #nav-open span:nth-of-type(3) {
+    bottom: 0;
+  }
+  #nav-open.active span:nth-of-type(1) {
+    -webkit-transform: translateY(20px) rotate(-45deg);
+    transform: translateY(20px) rotate(-45deg);
+  }
+  #nav-open.active span:nth-of-type(2) {
+    opacity: 0;
+  }
+  #nav-open.active span:nth-of-type(3) {
+    -webkit-transform: translateY(-20px) rotate(45deg);
+    transform: translateY(-20px) rotate(45deg);
+  }
+
   /*閉じる用の薄黒カバー*/
   #nav-close {
     display: none;
     /*はじめは隠しておく*/
     position: fixed;
-    z-index: 99;
+    z-index: 0;
     top: 0;
-    /*全体に広がるように*/
+    /*全体に広がるように99*/
     left: 0;
     width: 100%;
     height: 100%;
@@ -396,8 +458,8 @@ a:active {
     position: fixed;
     top: 0;
     right: 0;
-    z-index: 9999;
-    /*最前面に*/
+    z-index: 1;
+    /*最前面に9999*/
     width: 90%;
     /*右側に隙間を作る（閉じるカバーを表示）*/
     max-width: 330px;
@@ -420,11 +482,11 @@ a:active {
   #nav-input:checked~#nav-content {
     -webkit-transform: translateX(0%);
     transform: translateX(0%);
-    /*中身を表示（右へスライド）*/
+    /*中身を表示（右へスライド)*/
     box-shadow: 6px 0 25px rgba(0, 0, 0, .15);
   }
   .footer {
-    font-size: 13px;
+    font-size: 12px;
     margin-top: 250px;
   }
 }
@@ -449,4 +511,35 @@ a:active {
   opacity: 0;
   position: absolute;
   top: 1410px;
+}
+
+/*topに戻る*/
+.pagetop {
+  margin-right: 10px;
+  height: 65px;
+  width: 65px;
+  border-radius: 50%;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  background-color: #fff;
+  opacity: 0.8;
+  display: none;
+  position: fixed;
+	z-index: 3;
+  right: 0;
+  bottom: 50px;
+}
+.pagetop a {
+  display: block;
+  text-align: center;
+  line-height: 65px;
+  text-decoration: none;
+}
+.pagetop a:hover {
+  text-decoration: none;
+  border-radius: 50%;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  background: #d7e847;
+  opacity: 0.8;
 }

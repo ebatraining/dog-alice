@@ -29,7 +29,7 @@
 		$('#opening').fadeOut();
 	  }, 3500); //約4秒数後
 	});
-	
+
 	$(function(){
 	  var now = new Date().getTime();
 	  $('#opening img').attr('src','TOP.svg'+'?'+''+now);
@@ -47,6 +47,31 @@
 	  }, 3800); //約4秒後に
 	});
 	</script>
+
+	<script>
+	$(document).ready(function() {
+	    var pagetop = $('.pagetop');
+	    $(window).scroll(function () {
+	        if ($(this).scrollTop() > 500) {
+	            pagetop.fadeIn();
+	        } else {
+	            pagetop.fadeOut();
+	        }
+	    });
+	    pagetop.click(function () {
+	        $('body, html').animate({ scrollTop: 0 }, 500);
+	        return false;
+	    });
+	});
+	</script>
+	<script>
+	$(function() {
+	  $("#nav-open,#nav-close").click(function() {
+	    $("#nav-open").toggleClass("active");
+	  });
+	});
+	</script>
+
 </head>
 
 <body>
@@ -58,8 +83,8 @@
   <div id="contents">
     <header class="site-header pc">
       <nav class="gnav">
+				<h1 class="logo"><a href=""><img src="image/logo.png" alt="アリス" width="130px"></a></h1>
         <ul class="gnav__menu">
-          <li class="gnav__menu__item logo"><a href=""><img src="image/logo.png" alt="アリス" width="130px"></a></li>
           <li class="gnav__menu__item"><a href="#sec1_dogrun" class="anchor"><img class="menu_icon" src="image/icon.png" alt="" width="20px">ドッグラン</a></li>
           <li class="gnav__menu__item"><a href="#sec2_hotel" class="anchor"><img class="menu_icon" src="image/icon.png" alt="" width="20px">ホテル</a></li>
           <li class="gnav__menu__item"><a href="#sec3_trimming" class="anchor"><img class="menu_icon" src="image/icon.png" alt="" width="20px">トリミング&amp;シャンプー</a></li>
@@ -71,15 +96,15 @@
     <header class="site-header_sp sp">
       <div id="nav-drawer">
         <input id="nav-input" type="checkbox" class="nav-unshown">
-        <label id="nav-open" for="nav-input"><span></span></label>
+        <label id="nav-open" for="nav-input"><span></span><span></span><span></span></label>
         <label class="nav-unshown" id="nav-close" for="nav-input"></label>
         <div id="nav-content">
+					<h1 class="gnav__menu__item_sp logo_sp"><a href=""><img src="image/logo.png" alt="アリス" width="130px"></a></h1>
           <ul class="">
-            <li class="gnav__menu__item_sp logo_sp"><a href=""><img src="image/logo.png" alt="アリス" width="130px"></a></li>
-            <li class="gnav__menu__item_sp menu_list"><a href="#sec1_dogrun" class="anchor"><img class="menu_icon" src="image/icon.png" alt="" width="20px">ドッグラン</a></li>
-            <li class="gnav__menu__item_sp menu_list"><a href="#sec2_hotel" class="anchor"><img class="menu_icon" src="image/icon.png" alt="" width="20px">ホテル</a></li>
-            <li class="gnav__menu__item_sp menu_list"><a href="#sec3_trimming" class="anchor"><img class="menu_icon" src="image/icon.png" alt="" width="20px">トリミング&amp;シャンプー</a></li>
-            <li class="gnav__menu__item_sp menu_list"><a href="#sec4_store" class="anchor"><img class="menu_icon" src="image/icon.png" alt="" width="20px">当店について</a></li>
+            <li><a href="#sec1_dogrun" class="anchor"><img class="menu_icon" src="image/icon.png" alt="" width="20px">ドッグラン</a></li>
+            <li><a href="#sec2_hotel" class="anchor"><img class="menu_icon" src="image/icon.png" alt="" width="20px">ホテル</a></li>
+            <li><a href="#sec3_trimming" class="anchor"><img class="menu_icon" src="image/icon.png" alt="" width="20px">トリミング&amp;シャンプー</a></li>
+            <li><a href="#sec4_store" class="anchor"><img class="menu_icon" src="image/icon.png" alt="" width="20px">当店について</a></li>
           </ul>
         </div>
       </div>
@@ -90,8 +115,8 @@
       <div class="mv">
         <p><img class="mv_ttl" src="image/mv_ttl.png" alt=""></p>
         <img class="mv_bird pc" src="image/mv_bird.png" alt="">
-        <p>ALICE（アリス）は、<span>神奈川県南足柄市</span>にある<br class="pc">
-          <span>一時預り・ホテル・トリミング・ドッグラン</span>のお店です。</p>
+        <p>ALICE（アリス）は、<span class="underLine">神奈川県南足柄市</span>にある<br class="pc">
+          <span class="underLine">一時預り・ホテル・トリミング・ドッグラン</span>のお店です。</p>
         <p>こだわりの設備と、ワンちゃんにやさしいケアを行っております。<br class="pc"> 小田原・箱根からも近く、自然と澄んだ空気の中で
           <br class="pc"> 四季折々の風景を感じながら、お過ごし頂けます。
         </p>
@@ -103,8 +128,8 @@
         <p><img class="dogrun" src="image/dogrun.png" alt="ドッグラン"></p>
         <img class="dogrunimg" src="image/dogrun_img.png" alt="ドッグラン">
 
-        <p><span>広い敷地に人工芝</span>で、ワンちゃんが快適に遊べるドッグランとなっています。
-          <br>ホテルでお預かりしているワンちゃんは、<span>朝晩ドッグランで自由に遊べます。</span></p>
+        <p><span class="underLine">広い敷地に人工芝</span>で、ワンちゃんが快適に遊べるドッグランとなっています。
+          <br>ホテルでお預かりしているワンちゃんは、<span class="underLine">朝晩ドッグランで自由に遊べます。</span></p>
         <img class="table1" src="image/dogrun_tbl.png" alt="ドッグラン">
         <ul class="list">
           <li>ご利用には、狂犬病ワクチン接種日のわかる証明書と混合ワクチン（５種以上）接種日のわかる証明書をご持参下さい。</li>
@@ -116,8 +141,8 @@
         <p><img class="hotel" src="image/hotel.png" alt="ホテル"></p>
         <img class="hotelimg" src="image/hotel_img.png" alt="ホテル">
 
-        <p>広くて丈夫なケージで、<span>常に清潔感が保たれるよう</span>に心がけています。
-          <br><span>遊び道具や癒しグッズもたくさん</span>あり、ワンちゃんを飽きさせません。</p>
+        <p>広くて丈夫なケージで、<span class="underLine">常に清潔感が保たれるよう</span>に心がけています。
+          <br><span class="underLine">遊び道具や癒しグッズもたくさん</span>あり、ワンちゃんを飽きさせません。</p>
         <img class="table1" src="image/hotel_tbl.png" alt="ホテル">
         <ul class="list">
           <li>環境やフードが変わると食事をしない場合がございますので、いつも召し上がっている物をお持ち下さい。</li>
@@ -133,7 +158,7 @@
         <img class="trimmingimg" src="image/trimming_img.png" alt="トリミング＆シャンプー">
 
         <p>トリミングでワンちゃんを飼い主様のイメージどおりに。
-          <br>シャンプーが苦手なワンちゃんも<span>極上バスタイムでリラックス。</span></p>
+          <br>シャンプーが苦手なワンちゃんも<span class="underLine">極上バスタイムでリラックス。</span></p>
         <div class="pc dog3">
           <p class="dog1 pyon1"><img src="image/dog1.png" alt=""></p>
           <p class="dog2 pyon2"><img src="image/dog2.png" alt=""></p>
@@ -190,7 +215,7 @@
               <img src="image/icon.png" alt="">住所</p>
             <p>神奈川県南足柄市中沼448</p>
             <p class="dog_icon"><img src="image/icon.png" alt="">電話番号</p>
-            <p><a href="tel:0465336622">0465-33-6622</a></p>
+            <p><a href="tel:0465336622"><span>0465-33-6622</span></a></p>
             <p class="dog_icon"><img src="image/icon.png" alt="">営業時間</p>
             <p>トリミング＆ホテル　　9:00～17:00<br>
               ドックラン【4月～6月】9:00～17:30<br>
@@ -215,6 +240,7 @@
       </div>
     </div>
   </div>
+	<p class="pagetop"><a href="#top"><img src="image/icon.png" width="20px" class="menu_icon">TOP</a></p>
 </body>
 
 </html>
